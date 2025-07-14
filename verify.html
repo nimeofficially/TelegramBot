@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verifizierung</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f6f6f6;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      background-color: #0088cc;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0077b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>👋 Willkommen zur Verifizierung</h1>
+  <p>Bitte bestätige, dass du kein Bot bist.</p>
+  <button id="verifyBtn">✅ Ich bin kein Bot</button>
+
+  <script>
+    // Telegram WebApp Initialisierung
+    const tg = window.Telegram.WebApp;
+
+    tg.expand(); // macht den View groß
+
+    document.getElementById('verifyBtn').addEventListener('click', () => {
+      // Simples Beispiel-Ergebnis
+      const result = {
+        verified: true
+      };
+
+      // Sende Ergebnis an den Bot
+      tg.sendData(JSON.stringify(result));
+
+      // Optional: schließen
+      tg.close();
+    });
+  </script>
+</body>
+</html>
